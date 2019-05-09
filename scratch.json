@@ -54,7 +54,7 @@
     
 	"location": "[parameters('loc')]",
 	"tags": {
-		"displayName": "StorageAccount1"
+		"displayName": "StorageAccount123456"
 	},
 	"sku": {
 		"name": "[parameters('storageacctype')]"
