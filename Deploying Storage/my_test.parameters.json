@@ -1,0 +1,23 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "adminUsername": {
+        "value": "jimeshsutar"
+      },
+      "adminPassword": {
+        "reference": {
+            "keyVault": {
+            "id": "/subscriptions/0578502a-2e48-4de1-9b6a-868986de7b84/resourceGroups/firstdeploy/providers/Microsoft.KeyVault/vaults/firstVaulttest"
+            },
+            "secretName": "vmAdminPassword"
+        }
+        
+    },
+
+    
+      "dnsLabelPrefix": {
+        "value": "jimeshsutarmachine"
+      }
+    }
+  }
