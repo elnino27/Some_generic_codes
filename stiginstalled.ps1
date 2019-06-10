@@ -7,40 +7,32 @@
 
 
 
+Set-Location HKLM:
 
+$get=Test-path .\SOFTWARE\Policies\Microsoft\Windows\Installer
 
-##Set the drive for registery##
+if($get -eq $false)
 
-cd HKLM:
-
-##Get the value##
-
-$get=Get-ItemPropertyValue HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer -Name AlwaysInstallElevated
-
-##Condition##
-
-If($get -ceq "0")
 {
-Set-ItemProperty \SOFTWARE\Policies\Microsoft\Windows\Installer\ -Name "AlwaysInstallElevated" -Value "1" -Force
 
-cd HKCU :
+New-Item -Path .\SOFTWARE\Policies\Microsoft\Windows\ -Name "Installer" -Force
 
-Set-ItemProperty \SOFTWARE\Policies\Microsoft\Windows\Installer\ -Name "AlwaysInstallElevated" -Value "1" -Force
+New-ItemProperty .\SOFTWARE\Policies\Microsoft\Windows\Installer -Name "AlwaysInstallElevated" -PropertyType "DWord" -Value "1"
 
 }
 
 else{
 
+Set-ItemProperty \SOFTWARE\Policies\Microsoft\Windows\Installer\ -Name "AlwaysInstallElevated" -Value "1" -Force
 
-New-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Installer\" -Name "AlwaysInstallElevated" -Value "1" -PropertyType "DWord"
-
-New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer\" -Name "AlwaysInstallElevated" -Value "1" -PropertyType "DWord"
 
 }
 
-
 ##Result stored to confirm
 
-$result = Get-ItemPropertyValue HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer -Name AlwaysInstallElevated
+$result = Get-ItemPropertyValue .\SOFTWARE\Policies\Microsoft\Windows\Installer -Name AlwaysInstallElevated
 
-Add-Content -Value $result -Path C:success.txt
+
+
+New-Item -Path "c:\" -Name "logfiles" -ItemType "directory"
+Add-Content -Value $result -Path C:\logfiles\success.txt
