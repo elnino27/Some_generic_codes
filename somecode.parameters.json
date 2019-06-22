@@ -1,0 +1,56 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "addressPrefix": {
+            "value": "10.0.0.0/16"
+        },
+        "subnetPrefix": {
+            "value": "10.0.0.0/28"
+        },
+        "applicationGatewaySize": {
+            "value": "Standard_Medium"
+        },
+        "capacity": {
+            "value": 2
+        },
+        "azureWebapp1": {
+            "value": "xyz-unique-webapp.azurewebsites.net"
+        },
+        "probeEnabled": {
+            "value": true
+        },
+        
+        "webAppName": {
+            "value": "xyz-unique"
+        },
+        "sku": {
+            "value": "S1"
+        },
+        "accountType": {
+            "value": "Standard_RAGRS"
+        },
+        "kind": {
+            "value": "StorageV2"
+        },
+        "accessTier": {
+            "value": "Hot"
+        },
+        "supportsHttpsTrafficOnly": {
+            "value": true
+        },
+        "isHnsEnabled": {
+            "value": true
+        },
+
+        "builtInRoleType": {
+            "value": "Owner"
+        },
+        "roleNameGuid": {
+            "value": "91fc50cc-f3fd-4848-9675-8aa9b8277ba8"
+        }
+
+
+        
+    }
+}
